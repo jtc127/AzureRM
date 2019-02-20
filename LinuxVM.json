@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string"
-        },
-        "networkInterfaceName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
         },
         "subnetName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "HTG-DEV-EastUS-128A"
         },
         "virtualNetworkId": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "/subscriptions/cfdeed0d-7fa2-4a1d-ad10-613576fdf1de/resourceGroups/AzureVnetRG-HTG-DEV-EastUS/providers/Microsoft.Network/virtualNetworks/AzureVnet-HTG-DEV-EastUS"
         },
         "virtualMachineName": {
             "type": "string"
@@ -35,7 +35,8 @@
     },
     "variables": {
         "vnetId": "[parameters('virtualNetworkId')]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "networkInterfaceName": "[concat(parameters('virtualMachineName'), '-nic01')]"
     },
     "resources": [
         {
@@ -58,9 +59,9 @@
                 ]
             },
             "tags": {
-                "BusinessUnit": "HTG",
-                "CostCenter": "356175",
-                "Environment": "DEV"
+                "BusinessUnit": "unspecified",
+                "CostCenter": "unspecified",
+                "Environment": "unspecified"
             }
         },
         {
@@ -103,9 +104,9 @@
                 }
             },
             "tags": {
-                "BusinessUnit": "HTG",
-                "CostCenter": "356175",
-                "Environment": "DEV"
+                "BusinessUnit": "unspecified",
+                "CostCenter": "unspecified",
+                "Environment": "unspecified"
             }
         }
     ],
