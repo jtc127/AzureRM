@@ -8,7 +8,7 @@
         },
         "subnetName": {
             "type": "string",
-            "defaultValue": "HTG-DEV-EastUS-128A"
+            "defaultValue": "HTG-DEV-EastUS-128"
         },
         "virtualNetworkId": {
             "type": "string",
